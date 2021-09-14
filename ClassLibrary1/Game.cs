@@ -15,7 +15,7 @@ namespace ClassLibrary1
 
         public int Score()
         {
-            return -1;
+            return 0;
         }
     }
 }
