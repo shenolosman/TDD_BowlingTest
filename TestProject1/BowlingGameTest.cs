@@ -29,7 +29,7 @@ namespace TestProject1
             {
                 game.Roll(1);
             }
-            Assert.Equal(1, game.Score());
+            Assert.Equal(20, game.Score());
         }
     }
 }
