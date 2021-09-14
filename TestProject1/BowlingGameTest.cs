@@ -1,35 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ClassLibrary1;
+﻿using ClassLibrary1;
 using Xunit;
 
 namespace TestProject1
 {
-   public class BowlingGameTest
+    public class BowlingGameTest
     {
+        private Game _game;
+      
+
+        private void MakeXRolls(int _rundor,int kälgorSlogs)
+        {
+            for (int i = 0; i < _rundor; i++)
+            {
+                _game.Roll(kälgorSlogs);
+            }
+        }
+        public BowlingGameTest()
+        {
+           
+            _game = new Game();
+        }
         [Fact]
         public void BowlingTest()
         {
-            Game game = new();
-            for (int i = 0; i < 20; i++)
-            {
-                game.Roll(0);
-            }
-            Assert.Equal(0,game.Score());
+
+            MakeXRolls(20, 0);
+            Assert.Equal(0,_game.Score());
         }
 
         [Fact]
         public void AllBowlingTest()
         {
-            Game game = new();
-            for (int i = 0; i < 20; i++)
-            {
-                game.Roll(1);
-            }
-            Assert.Equal(20, game.Score());
+            MakeXRolls(20, 1);
+            Assert.Equal(20, _game.Score());
         }
     }
 }
