@@ -20,5 +20,16 @@ namespace TestProject1
             }
             Assert.Equal(0,game.Score());
         }
+
+        [Fact]
+        public void AllBowlingTest()
+        {
+            Game game = new();
+            for (int i = 0; i < 20; i++)
+            {
+                game.Roll(1);
+            }
+            Assert.Equal(1, game.Score());
+        }
     }
 }
