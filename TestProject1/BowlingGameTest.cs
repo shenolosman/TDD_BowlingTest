@@ -36,13 +36,13 @@ namespace TestProject1
         }
 
         [Fact]
-        public void testOneSpace()
+        public void testOneSpare()
         {
             _game.Roll(5);
-            _game.Roll(5);
+            _game.Roll(5);//spare
             _game.Roll(3);
-            MakeXRolls(17,0);
-            Assert.Equal(16,_game.Score());
+            MakeXRolls(17, 0);
+            Assert.Equal(16, _game.Score());
         }
     }
 }
