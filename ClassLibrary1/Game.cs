@@ -21,11 +21,20 @@ namespace ClassLibrary1
             int frameIndex = 0;
             for (int frame = 0; frame < 10; frame++)
             {
-                if (isSpare(frameIndex))//spare
+                if (rolls[frameIndex]==10) //strike
+                {
+                    _score += 10 +
+                               rolls[frameIndex + 1] +
+                               rolls[frameIndex + 2];
+                    frameIndex++;
+                }
+                else if (isSpare(frameIndex))//spare
                 {
                     _score += 10 + rolls[frameIndex + 2];
                     frameIndex += 2;
-                }else {
+                }
+                else
+                {
                     _score += rolls[frameIndex] + rolls[frameIndex + 1];
                     frameIndex += 2;
                 }
