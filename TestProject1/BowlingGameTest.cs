@@ -38,11 +38,16 @@ namespace TestProject1
         [Fact]
         public void testOneSpare()
         {
-            _game.Roll(5);
-            _game.Roll(5);//spare
+           rollSpare();
             _game.Roll(3);
             MakeXRolls(17, 0);
             Assert.Equal(16, _game.Score());
+        }
+
+        private void rollSpare()
+        {
+            _game.Roll(5);
+            _game.Roll(5);
         }
     }
 }
