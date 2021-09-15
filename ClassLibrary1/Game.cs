@@ -21,27 +21,38 @@ namespace ClassLibrary1
             int frameIndex = 0;
             for (int frame = 0; frame < 10; frame++)
             {
-                if (rolls[frameIndex]==10) //strike
+                if (rolls[frameIndex]==10)
                 {
                     _score += 10 +
-                               rolls[frameIndex + 1] +
-                               rolls[frameIndex + 2];
+                              strikeBonus(frameIndex);
                     frameIndex++;
                 }
-                else if (isSpare(frameIndex))//spare
+                else if (isSpare(frameIndex))
                 {
-                    _score += 10 + rolls[frameIndex + 2];
+                    _score += 10 + spareBonus(frameIndex);
                     frameIndex += 2;
                 }
                 else
                 {
-                    _score += rolls[frameIndex] + rolls[frameIndex + 1];
+                    _score += sumOfBallInFrame(frameIndex);
                     frameIndex += 2;
                 }
             }
             return _score;
         }
 
+        private int sumOfBallInFrame(int frameIndex)
+        {
+            return rolls[frameIndex] + rolls[frameIndex + 1];
+        }
+        private int spareBonus(int frameIndex)
+        {
+            return rolls[frameIndex + 2];
+        }
+        private int strikeBonus(int frameIndex)
+        {
+            return rolls[frameIndex + 1] + rolls[frameIndex + 2];
+        }
         private bool isSpare(int frameIndex)
         {
             return rolls[frameIndex] + rolls[frameIndex + 1]==10;

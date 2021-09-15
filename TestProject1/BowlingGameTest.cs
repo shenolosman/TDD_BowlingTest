@@ -47,7 +47,7 @@ namespace TestProject1
         [Fact]
         public void testOneStrike()
         {
-            _game.Roll(10); //strike
+            _game.Roll(10); 
             _game.Roll(3);
             _game.Roll(4);
             MakeXRolls(16,0);
