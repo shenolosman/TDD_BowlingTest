@@ -8,9 +8,9 @@ namespace TestProject1
         private Game _game;
       
 
-        private void MakeXRolls(int _rundor,int kälgorSlogs)
+        private void MakeXRolls(int rundor,int kälgorSlogs)
         {
-            for (int i = 0; i < _rundor; i++)
+            for (int i = 0; i < rundor; i++)
             {
                 _game.Roll(kälgorSlogs);
             }
@@ -33,6 +33,16 @@ namespace TestProject1
         {
             MakeXRolls(20, 1);
             Assert.Equal(20, _game.Score());
+        }
+
+        [Fact]
+        public void testOneSpace()
+        {
+            _game.Roll(5);
+            _game.Roll(5);
+            _game.Roll(3);
+            MakeXRolls(17,0);
+            Assert.Equal(16,_game.Score());
         }
     }
 }
